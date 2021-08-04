@@ -4,7 +4,7 @@ Feature: Login
         Given que esteja na página de login
         
  
-    Scenario Outline: Realizar login
+    Scenario Outline: Realizar login do tipo "<tipo>"
         When logar com um usuário do tipo "<tipo>"
         Then deverá "<resultado>"
         Examples:

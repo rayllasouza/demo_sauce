@@ -1,21 +1,14 @@
 /// <reference types="cypress" />
 import {Given, When, Then, Before} from 'cypress-cucumber-preprocessor/steps'
 import { closeSync } from 'fs';
-import {Sauce} from '../../pages/sauce_pages/login_page'
+import {Sauce} from '../../pages/sauce.page'
 
- 
-Given(`que esteja na página de login`, () => {
+
+
+Given(`que esteja na página home`, () => {
    
     Sauce.acessar_sauce_demo()
        
-});
-
-When(`logar com um usuário do tipo {string}`, (tipo) => {
-	Sauce.logar_sauce_demo_alt()
-});
-
-Then(`deverá {string}`, (resultado) => {
-	cy.log(resultado)
 });
 
  

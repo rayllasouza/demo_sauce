@@ -1,17 +1,5 @@
 {
-  "tipo":{
-    
-    "user_ valido": {
-      "user": "standard_user",
-      "password": "secret_sauce"
-     },
-
-    "user_invalido":{
-      "user": "teste_!",
-      "password": "secret_1"
-    }
-  
-  }
-    
-
+  "name": "Using fixtures to represent data",
+  "email": "hello@cypress.io",
+  "body": "Fixtures are a great way to mock data for responses to routes"
 }

@@ -1,5 +1,6 @@
 import Base from '../_base.page'
 import { Login as log } from '../components/sauce_components/login_elements'
+import Factory from '../../fixtures/factory';
 
 
 export class Sauce extends Base {
@@ -8,22 +9,24 @@ export class Sauce extends Base {
         cy.visit('/');
     }
 
-    static logar_sauce_demo(user, password){
+    static logar_sauce_demo(usuario, senha){
 
-        cy.get(log.INPUT_USER).type(user)
-        cy.get(log.INPUT_PASSWORD).type(password)
+        cy.get(log.INPUT_USER).type(usuario)
+        cy.get(log.INPUT_PASSWORD).type(senha)
         cy.get(log.BTN_LOGIN).click()
+
+        if (usuario == "standard_user" && senha == "secret_sauce"){
+            cy.get('#react-burger-menu-btn').should('exist');
+        }else{
+            cy.get('[data-test=error]').should('be.visible').and('contain', 'Username and password do not match any user in this service');
+        }
     }
 
-    static logar_sauce_demo_alt(tipo){
-
-        cy.fixture('example.json').then(data =>{
-            //cy.get(log.INPUT_USER).type(data.user_valido.user)
-            //cy.get(log.INPUT_PASSWORD).type(data.user_valido.password)
-            //cy.get(log.BTN_LOGIN).click()
-            cy.log(data.user_valido.user)
-        }) 
-       
+    static buscar_tipo_usuario(tipo){
+        var user = Factory.usuario(tipo)
+        console.log(user)
+        return user
     }
+    
 }
 
